@@ -104,10 +104,93 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin-left: 48px;
   }
 
-  /* Height of the scroll area */
-  .content {
-    height: 900px;
+  #carousel-example-generic {
+    /*height: 400px;*/
+
   }
+
+  .carousel-image {
+    height:400px;
+    width: 100%;
+  }
+/* Add CSS3 transitions when you are done with the rest*/
+  .navbar {
+    margin-bottom: 0px;
+  }
+
+  .navbar.closed {
+    background-color: transparent;
+  }
+
+  .navbar.affix {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: #ff5722;
+  }
+
+  .navbar-toggle .icon-bar {
+    transition: all 0.2s;
+  }
+  .navbar-toggle .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+  .navbar-toggle .middle-bar {
+    opacity: 0;
+  }
+  .navbar-toggle .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+
+  .navbar-toggle.collapsed .top-bar {
+    transform:rotate(0);
+  }
+
+  .navbar-toggle.collapsed .middle-bar {
+    opacity: 1;
+  }
+
+  .navbar-toggle.collapsed .bottom-bar {
+    transform: rotate(0);
+  }
+
+  .outer {
+    position: relative;
+  }
+
+  .ontop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+  }
+
+  .carousel-buttons {
+    position: absolute;
+    margin-top: -20px;
+    margin-right: -20px;
+    top: 50%;
+    right: 50%;
+    --iron-icon-height: 48px;
+    --iron-icon-width: 48px;
+  }
+
+  .carousel-indicators {
+    bottom: 25px;
+  }
+
+  .big {
+    --iron-icon-height: 32px;
+    --iron-icon-width: 32px;
+  }
+
+  /* Height of the scroll area */
+  /*.content {
+    height: 900px;
+  }*/
 
   /* Breakpoints */
 
@@ -157,9 +240,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       border-right: 1px solid rgba(0, 0, 0, 0.14);
     }
 
-    iron-pages {
+    /*iron-pages {
       padding: 48px 62px;
-    }
+    }*/
 
   }
 

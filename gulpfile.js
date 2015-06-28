@@ -50,6 +50,16 @@ gulp.task('styles', function () {
   return styleTask('styles', ['**/*.css']);
 });
 
+gulp.task('less', function () {
+  return gulp.src(['**/*.less'].map(function(src) {
+      return path.join('app', 'styles/less', src);
+    }))
+    .pipe($.changed('styles/less', {extension: '.less'}))
+    .pipe($.less())
+    .pipe(gulp.dest('app/styles/less'))
+    .pipe($.size({title: 'less'}));
+});
+
 gulp.task('elements', function () {
   return styleTask('elements', ['**/*.css']);
 });
@@ -178,7 +188,7 @@ gulp.task('precache', function (callback) {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
-gulp.task('serve', ['styles', 'elements', 'images'], function () {
+gulp.task('serve', ['less', 'styles', 'elements', 'images'], function () {
   browserSync({
     notify: false,
     snippetOptions: {
@@ -202,6 +212,7 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
   });
 
   gulp.watch(['app/**/*.html'], reload);
+  gulp.watch(['app/styles/less/**/*.less'], ['less', 'styles', reload]);
   gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
   gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
   gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint']);
@@ -231,7 +242,7 @@ gulp.task('serve:dist', ['default'], function () {
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
   runSequence(
-    ['copy', 'styles'],
+    ['copy', 'less', 'styles'],
     'elements',
     ['jshint', 'images', 'fonts', 'html'],
     'vulcanize', 'precache',
