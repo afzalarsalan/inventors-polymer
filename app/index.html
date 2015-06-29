@@ -35,12 +35,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Tile icon for Win8 (144x144) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
-    <!-- <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css"> -->
-    <link rel="stylesheet" href="styles/less/material.css"
-    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/css/swiper.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild-->
     <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
@@ -61,60 +57,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <div id="header-wrapper">
                         <div class="outer">
                             <div class="ontop">
-                                <nav id="default-navbar" class="navbar navbar-default closed">
-                                    <div class="container-fluid">
-                                        <!-- Brand and toggle get grouped for better mobile display -->
-                                        <div class="navbar-header">
-                                            <button type="button" id="mainNav-collapser" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                                <span class="sr-only">Toggle navigation</span>
-                                                <span class="icon-bar top-bar"></span>
-                                                <span class="icon-bar middle-bar"></span>
-                                                <span class="icon-bar bottom-bar"></span>
-                                            </button>
-                                            <a class="navbar-brand" href="#">Clements Inventors Club</a>
-                                        </div>
-                                        <!-- Collect the nav links, forms, and other content for toggling -->
-                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                            <ul class="nav navbar-nav">
-                                                <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                                                <li><a href="#">Link</a></li>
-                                            </ul>
-                                            <ul class="nav navbar-nav navbar-right">
-                                                <li><a href="#">Sign Up</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.navbar-collapse -->
+                                <nav>
+                                    <div class="nav-wrapper deep-orange">
+                                        <a href="#!" class="brand-logo">Clements Inventors Club</a>
+                                        <a href="#" data-activates="mobile-demo" class="button-collapse"><iron-icon class="big" icon="menu"></iron-icon></a>
+                                        <ul class="right hide-on-med-and-down">
+                                            <li><a class="waves-effect waves-light" href="#">Sass</a></li>
+                                            <li><a class="waves-effect waves-light"  href="#">Components</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Javascript</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Mobile</a></li>
+                                        </ul>
+                                        <ul class="side-nav" id="mobile-demo">
+                                            <li><a href="sass.html">Sass</a></li>
+                                            <li><a href="badges.html">Components</a></li>
+                                            <li><a href="collapsible.html">Javascript</a></li>
+                                            <li><a href="mobile.html">Mobile</a></li>
+                                        </ul>
                                     </div>
-                                    <!-- /.container-fluid -->
                                 </nav>
                             </div>
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                </ol>
+                            <div id="carousel-example-generic" class="swiper-container">
                                 <!-- Wrapper for slides -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <img class="carousel-image" src="images/carousel/grungy_background-wallpaper-1920x600.jpg" alt="A beach">
-                                    </div>
-                                    <div class="item">
-                                        <img class="carousel-image" src="images/carousel/pacific_ocean_from_space-wallpaper-1920x600.jpg" alt="A waterfall">
-                                    </div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img class="carousel-image" src="images/carousel/grungy_background-wallpaper-1920x600.jpg" alt="A beach" /></div>
+                                    <div class="swiper-slide"><img class="carousel-image" src="images/carousel/pacific_ocean_from_space-wallpaper-1920x600.jpg" alt="A waterfall" /></div>
                                 </div>
-                                <!-- Controls -->
-                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                    <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
-                                    <iron-icon class="carousel-buttons" icon="chevron-left"></iron-icon>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                    <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
-                                    <iron-icon class="carousel-buttons" icon="chevron-right"></iron-icon>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
                             </div>
                         </div>
                     </div>
@@ -175,10 +145,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
     <!-- build:js scripts/app.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-    <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/js/swiper.jquery.min.js"></script>
     <script src="scripts/app.js"></script>
     <!-- endbuild-->
 </body>

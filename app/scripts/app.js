@@ -8,45 +8,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 (function(document) {
-    'use strict';
+  'use strict';
 
-    // Grab a reference to our auto-binding template
-    // and give it some initial binding values
-    // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
-    var app = document.querySelector('#app');
+  // Grab a reference to our auto-binding template
+  // and give it some initial binding values
+  // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
+  var app = document.querySelector('#app');
 
-    app.displayInstalledToast = function() {
-        document.querySelector('#caching-complete').show();
-    };
+  app.displayInstalledToast = function() {
+    document.querySelector('#caching-complete').show();
+  };
 
-    // Listen for template bound event to know when bindings
-    // have resolved and content has been stamped to the page
-    app.addEventListener('dom-change', function() {
-        console.log('Our app is ready to rock!');
+  // Listen for template bound event to know when bindings
+  // have resolved and content has been stamped to the page
+  app.addEventListener('dom-change', function() {
+    console.log('Our app is ready to rock!');
+  });
+
+  // See https://github.com/Polymer/polymer/issues/1381
+  window.addEventListener('WebComponentsReady', function() {
+    // imports are loaded and elements have been registered
+  });
+
+  $(document).ready(function() {
+    var mySwiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      loop: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev'
     });
+    $('.button-collapse').sideNav();
+    $('.nav-wrapper').pushpin({top: 342});
+  });
 
-    // See https://github.com/Polymer/polymer/issues/1381
-    window.addEventListener('WebComponentsReady', function() {
-        // imports are loaded and elements have been registered
-        $('#default-navbar').affix({
-          offset: { top: $('#default-navbar').offset().top }
-        });
-    });
-
-    $(document).on('hide.bs.collapse', function() {
-        $('#default-navbar').addClass('closed');
-    });
-
-    $(document).on('show.bs.collapse', function() {
-        $('#default-navbar').removeClass('closed');
-    });
-
-    /*  // Close drawer after menu item is selected if drawerPanel is narrow
-      app.onMenuSelect = function() {
-        var drawerPanel = document.querySelector('#paperDrawerPanel');
-        if (drawerPanel.narrow) {
-          drawerPanel.closeDrawer();
-        }
-      };*/
-
+  /*  // Close drawer after menu item is selected if drawerPanel is narrow
+    app.onMenuSelect = function() {
+      var drawerPanel = document.querySelector('#paperDrawerPanel');
+      if (drawerPanel.narrow) {
+        drawerPanel.closeDrawer();
+      }
+    };*/
 })(document);
