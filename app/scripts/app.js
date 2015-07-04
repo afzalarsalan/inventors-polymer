@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       prevButton: '.swiper-button-prev'
     });
     $('.button-collapse').sideNav();
-    $('.nav-wrapper').pushpin({top: 342});
+    $('#whole-nav').pushpin({top: 442});
   });
 
   /*  // Close drawer after menu item is selected if drawerPanel is narrow

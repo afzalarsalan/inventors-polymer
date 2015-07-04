@@ -35,7 +35,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Tile icon for Win8 (144x144) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="styles/sass/materialcss.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/css/swiper.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild-->
@@ -57,15 +58,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <div id="header-wrapper">
                         <div class="outer">
                             <div class="ontop">
-                                <nav>
-                                    <div class="nav-wrapper deep-orange">
+                                <nav id="whole-nav">
+                                    <div class="nav-wrapper">
                                         <a href="#!" class="brand-logo">Clements Inventors Club</a>
-                                        <a href="#" data-activates="mobile-demo" class="button-collapse"><iron-icon class="big" icon="menu"></iron-icon></a>
-                                        <ul class="right hide-on-med-and-down">
-                                            <li><a class="waves-effect waves-light" href="#">Sass</a></li>
-                                            <li><a class="waves-effect waves-light"  href="#">Components</a></li>
-                                            <li><a class="waves-effect waves-light" href="#">Javascript</a></li>
-                                            <li><a class="waves-effect waves-light" href="#">Mobile</a></li>
+                                        <a href="#" data-activates="mobile-demo" class="button-collapse">
+                                            <iron-icon class="big" icon="menu"></iron-icon>
+                                        </a>
+                                        <ul class="right hide-on-med-and-down main-nav">
+                                            <li><a class="waves-effect waves-light" href="#">Home</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">About Us</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Projects</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Events</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Sign Up</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Blog</a></li>
+                                            <li><a class="waves-effect waves-light" href="#">Contact</a></li>
                                         </ul>
                                         <ul class="side-nav" id="mobile-demo">
                                             <li><a href="sass.html">Sass</a></li>
@@ -88,8 +94,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             </div>
                         </div>
                     </div>
-                    <paper-material elevation="1">
-                        <h2>About Us</h2>
+                    <div id="about-container" class="container">
+                        <h2 class="header-text">About Us</h2>
+                    </div>
+                    <paper-material elevation="2">
                         <p class="paper-font-subhead">You now have:</p>
                         <my-list></my-list>
                         <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
@@ -138,7 +146,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-drawer-panel>
         <paper-toast id="caching-complete" duration="6000" text="Caching complete! This app will work offline.">
         </paper-toast>
-        <platinum-sw-register auto-register clients-claim skip-waiting on-service-worker-installed="displayInstalledToast">
+        <platinum-sw-register auto-register reloadOnInstall clients-claim skip-waiting on-service-worker-installed="displayInstalledToast">
             <platinum-sw-cache default-cache-strategy="networkFirst" precache-file="precache.json">
             </platinum-sw-cache>
         </platinum-sw-register>
